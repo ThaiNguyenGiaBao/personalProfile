@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thai Nguyen Gia Bao - Profile</title>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+</head>
+
+<body class="bg-white text-gray-800 font-sans px-8 max-w-screen-xl mx-auto text-base md:text-xl">
+    <!-- Navigation Bar with Flowbite Dropdown for mobile -->
+    <header class="bg-white border-b border-gray-200 w-full ">
+
+
+        <nav class="bg-white border-gray-200 ">
+            <div class=" flex flex-wrap items-center justify-between mx-auto p-4">
+                <span class="self-center text-2xl md:text-3xl font-bold">Thai Nguyen Gia
+                    Bao</span>
+
+                <button data-collapse-toggle="navbar-default" type="button"
+                    class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 "
+                    aria-controls="navbar-default" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M1 1h15M1 7h15M1 13h15" />
+                    </svg>
+                </button>
+                <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                    <ul
+                        class="font-medium flex flex-col  mt-2 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white ">
+                        <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
+                        <li><a href="#activities" class="hover:text-blue-600">Activities</a></li>
+                        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- Hero / Intro Section -->
+    <section class="my-12  max-w-5xl mx-auto flex flex-col md:flex-row items-center md:space-x-8 gap-4">
+        <!-- Profile Picture -->
+        <div class="w-full sm:w-80 sm:h-80 bg-gray-100 rounded-xl overflow-hidden shadow ">
+            <img src="images/avatar.jpg" alt="Profile Photo" class="w-full h-full object-cover">
+        </div>
+        <!-- Intro Text -->
+        <div class="flex-1 flex flex-col text-left gap-4 ">
+            <h2 class="text-2xl md:text-4xl font-bold mb-2">
+                Hi, I'm <span class="text-blue-600">Thai Nguyen Gia Bao</span>
+            </h2>
+            <p class="text-gray-700 ">
+                I’m a Computer Science student (Honors Program) at Ho Chi Minh University of Technology - VNU.
+            </p>
+            <link rel="stylesheet"
+                href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+            <!-- Badge Group -->
+            <div class="flex flex-wrap gap-4">
+                <a href="cv/cv.pdf" target="_blank"
+                    class="flex items-center gap-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-blue-700 transition-shadow shadow-md">
+                    <i class="fas fa-file-alt"></i>
+                    <span>CV</span>
+                </a>
+                <a href="https://github.com/ThaiNguyenGiaBao" target="_blank"
+                    class="flex items-center gap-4 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-900 transition-shadow shadow-md">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/bao-thai-nguyen-gia-2450b22b7" target="_blank"
+                    class="flex items-center gap-4 px-4 py-2 bg-blue-700 text-white rounded-lg hover:bg-blue-900 transition-shadow shadow-md">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="my-12 max-w-5xl mx-auto">
+        <h2 class="text-2xl md:text-4xl font-bold mb-6">Featured Projects</h2>
+        <script>
+            // 1. Create an array of project objects
+            const projectData = [
+                {
+                    title: "TickPortal",
+                    imageSrc: "/images/ticklab.png",
+                    imageAlt: "Screenshot of TickPortal project",
+                    description:
+                        "Developed a Discord bot that centralized notifications from Gmail and Facebook to Ticklab’s Discord, automated workflows for email forwarding, CV management, and candidate scheduling, streamlining HR processes.",
+                    badges: [
+                        "Express.js",
+                        "TypeScript",
+                        "Google API",
+                        "Facebook API",
+                        "Discord API",
+                        "PostgreSQL",
+                    ],
+                },
+                {
+                    title: "Smart Student Printing Service",
+                    imageSrc: "/images/hcmut.png",
+                    imageAlt: "Screenshot of Smart Student Printing Service project",
+                    link: "https://smartstudentprintingservice.vercel.app",
+                    description:
+                        "Designed and developed a web platform that allows students to locate available printers, manage print jobs, and track usage.",
+                    badges: ["ExpressJs", "TypeScript", "ReactJS", "Bootstrap", "PostgreSQL"],
+                },
+                {
+                    title: "SmartHome",
+                    imageSrc: "/images/smarthome.png",
+                    link: "https://www.figma.com/design/LRJmTvm0Tmz5dUzuNrvnjn/SmartHome?node-id=0-1&p=f&t=u2J5no9PdOSjcpKF-0",
+                    imageAlt: "Screenshot of Smart Student Printing Service project",
+                    description:
+                        "A mobile app that allows users to control devices remotely, automate routines and monitor environmental conditions",
+                    badges: ["ExpressJs", "TypeScript", "ReactNative", "NativeWind", "PostgreSQL", "AdafruitIO"],
+                },
+                {
+                    title: "IQThaiSon",
+                    imageSrc: "/images/iqthaison.png",
+                    imageAlt: "Screenshot of IQThaiSon project",
+                    link: 'https://iqthaison.vercel.app',
+                    description:
+                        "A website that provides online courses for students preparing for the university entrance exam, with features such as prevent multiple login in one accound, prevent to download video,...",
+                    badges: ["ExpressJs", "TypeScript", "ReactNative", "NativeWind", "PostgreSQL", "AdafruitIO"],
+                }
+            ];
+
+            // 2. Create a function to generate the badge HTML
+            function generateBadges(badges) {
+                return badges
+                    .map(
+                        (badge) => `
+                  <span
+                    class="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-200 dark:text-blue-800"
+                  >
+                    ${badge}
+                  </span>
+                `
+                    )
+                    .join("");
+            }
+
+            // 3. Create a function to generate a single project card
+            function generateProjectCard(project) {
+                return `
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center mt-4 border border-gray-100 rounded-xl">
+                  <!-- Project Screenshot -->
+                  <a href='${project.link}' target='_blank'><img
+                    src="${project.imageSrc}"
+                    alt="${project.imageAlt}"
+                    class="w-full h-auto rounded-t-lg md:rounded-l-lg md:rounded-r-none shadow-lg"
+                  /></a>
+                  
+        
+                  <!-- Project Details -->
+                  <div class="px-6 pb-4 md:py-2">
+                      <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                        ${project.title}
+                      </h3>
+                      
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">
+                      ${project.description}
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                      ${generateBadges(project.badges)}
+                    </div>
+                  </div>
+                </div>
+              `;
+            }
+
+            // 4. Render all projects into the #projects container
+            function renderProjects() {
+                const container = document.getElementById("projects");
+                container.innerHTML = `
+                <h2 class="text-2xl md:text-4xl font-bold mb-6">Featured Projects</h2>
+                ${projectData.map(generateProjectCard).join("")}
+              `;
+            }
+
+            // 5. Call the render function on page load
+            renderProjects();
+        </script>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="max-w-5xl mx-auto px-4 py-12 ">
+        <h2 class="text-2xl md:text-4xl font-bold mb-4">Activities</h2>
+        <div class="space-y-8">
+            <!-- Activity 1 -->
+            <div>
+                <h3 class="text-xl font-semibold"> <span class="font-bold">Jan 2025</span>: Research
+                    about Decentralized Federated
+                    Learning
+                </h3>
+                <ul class="list-disc list-inside mt-2 text-gray-700">
+                    <li>Advisor: Nhan Trong Phan, Ph.D</li>
+                    <li>Focusing on performance optimization, security & privacy (DP, SMC, HE), protocols (p2p,
+                        blockchain-based)</li>
+                    <li>Applications in healthcare, industry 4.0</li>
+                </ul>
+            </div>
+            <!-- Activity 2 -->
+            <div>
+
+                <h3 class="text-xl font-semibold"> <span class="font-bold">Dec 2024:</span> Manage virtual machine for
+                    TickLab
+
+                </h3>
+                <ul class="list-disc list-inside mt-2 text-gray-700">
+                    <li>Operating system: Proxmox VE</li>
+                    <li>Research Team: created two VMs, one for primary tasks and another for backup; enabled PCIe
+                        passthrough
+                        for GPU acceleration to train machine learning models.</li>
+                    <li>Engineering Team: set up dedicated VMs for team members to isolate workloads and ensure project
+                        separation</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Interests Section -->
+    <section id="blog" class="max-w-5xl mx-auto px-4 py-12 ">
+        <h2 class="text-2xl md:text-4xl font-bold mb-6">Blog</h2>
+
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="max-w-5xl mx-auto px-4 py-12 ">
+        <h2 class="text-2xl md:text-4xl font-bold mb-6">Contact</h2>
+        <p class="text-gray-700">
+            Interested in collaborating or learning more about my work? Feel free to reach out:
+        </p>
+        <ul class="list-none mt-4 text-gray-700 space-y-2">
+            <li><strong>Email:</strong> <a href="mailto:bao.thainguyenkhmt@hcmut.edu.com"
+                    class="text-blue-600 hover:underline">bao.thainguyenkhmt@hcmut.edu.com</a></li>
+            <li><strong>Phone:</strong> 0332 504 557</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50  text-center py-4 mt-8 text-sm text-gray-600">
+        &copy; 2025 Thai Nguyen Gia Bao. All rights reserved.
+    </footer>
+
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.6/flowbite.min.js"></script>
+</body>
+
+</html>
