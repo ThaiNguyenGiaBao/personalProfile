@@ -10,12 +10,20 @@
     <!-- Flowbite CSS -->
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
+    <!-- Just before the closing body tag -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Animation only happens once while scrolling down
+        });
+    </script>
 </head>
 
-<body class="bg-white text-gray-800 font-sans px-8 max-w-screen-xl mx-auto text-base md:text-xl">
+<body class="bg-white text-gray-800 font-sans  mx-auto text-base md:text-xl px-6">
     <!-- Navigation Bar with Flowbite Dropdown for mobile -->
-    <header class="bg-white border-b border-gray-200 w-full ">
+    <header class="bg-white border-b border-gray-200 w-full px-20">
 
 
         <nav class="bg-white border-gray-200 ">
@@ -47,9 +55,9 @@
     </header>
 
     <!-- Hero / Intro Section -->
-    <section class="my-12  max-w-5xl mx-auto flex flex-col md:flex-row items-center md:space-x-8 gap-4">
+    <section class="my-12  max-w-7xl mx-auto flex flex-col md:flex-row items-center md:space-x-8 gap-4">
         <!-- Profile Picture -->
-        <div class="w-full sm:w-80 sm:h-80 bg-gray-100 rounded-xl overflow-hidden shadow ">
+        <div class="w-full sm:w-80 sm:h-80 rounded-xl overflow-hidden shadow ">
             <img src="images/avatar.jpg" alt="Profile Photo" class="w-full h-full object-cover">
         </div>
         <!-- Intro Text -->
@@ -85,10 +93,41 @@
 
     </section>
 
+    <section id="education" class=" py-12 bg-blue-50 mx-auto -mx-5 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class=" text-2xl md:text-4xl font-bold mb-4  ">Education</h2>
+            <div class=" space-y-8">
+                <!-- Activity 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold"> <span class="font-bold">Sep 2022: </span> Ho Chi Minh University
+                        of
+                        Technology - VNUHCM
+                    </h3>
+                    <ul class="list-disc list-inside mt-2 text-gray-700">
+                        <li>Computer Science, Honors programs</li>
+                        <li>GPA: 3.8/4, 8.88/10</li>
+                    </ul>
+                </div>
+                <!-- Activity 2 -->
+                <div>
 
+                    <h3 class="text-xl font-semibold"> <span class="font-bold">Sep 2019:</span> Ngo Quyen High School -
+                        Bien Hoa, Dong Nai
+                    </h3>
+                    <ul class="list-disc list-inside mt-2 text-gray-700">
+                        <li>Valedictorian group A, Dong Nai province - 2022 </li>
+                        <li>First prize in math for excellent students, Dong Nai province - 2022</li>
+                        <li>Second prize in math for excellent students, Dong Nai province - 2021</li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="my-12 max-w-5xl mx-auto">
+    <section id="projects" class="my-12 max-w-7xl mx-auto">
         <h2 class="text-2xl md:text-4xl font-bold mb-6">Featured Projects</h2>
         <script>
             // 1. Create an array of project objects
@@ -153,33 +192,67 @@
             }
 
             // 3. Create a function to generate a single project card
-            function generateProjectCard(project) {
-                return `
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center mt-4 border border-gray-100 rounded-xl">
-                  <!-- Project Screenshot -->
-                  <a href='${project.link}' target='_blank'><img
-                    src="${project.imageSrc}"
-                    alt="${project.imageAlt}"
-                    class="w-full h-auto rounded-t-lg md:rounded-l-lg md:rounded-r-none shadow-lg"
-                  /></a>
-                  
-        
-                  <!-- Project Details -->
-                  <div class="px-6 pb-4 md:py-2">
-                      <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
-                        ${project.title}
-                      </h3>
-                      
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                      ${project.description}
-                    </p>
-                    <div class="flex flex-wrap gap-2">
-                      ${generateBadges(project.badges)}
+            function generateProjectCard(project, index) {
+                // Calculate a delay for the animation based on the project index (0.2s per index)
+                const animationDelay = index * 0.2;
+                // Common animation classes from Animate.css
+                const animationClasses = "animate__animated animate__fadeIn";
+
+                if ((index + 1) % 2 === 1) {
+                    // For odd-numbered projects: details first, then image.
+                    return `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center mt-8 border border-gray-100 rounded-xl ${animationClasses}" style="animation-delay: ${animationDelay}s">
+                      <!-- Project Details -->
+                      <div class="px-6 pb-4 md:py-2">
+                        <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                          ${project.title}
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                          ${project.description}
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                          ${generateBadges(project.badges)}
+                        </div>
+                      </div>
+                      <!-- Project Screenshot -->
+                      <a href="${project.link}" target="_blank">
+                        <img
+                          src="${project.imageSrc}"
+                          alt="${project.imageAlt}"
+                          class="w-full max-h-md h-auto rounded-t-lg md:rounded-r-lg md:rounded-l-none shadow-lg"
+                        />
+                      </a>
                     </div>
-                  </div>
-                </div>
-              `;
+                  `;
+                } else {
+                    // For even-numbered projects: image first, then details.
+                    return `
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center mt-8 border border-gray-100 rounded-xl ${animationClasses}" style="animation-delay: ${animationDelay}s">
+                      <!-- Project Screenshot -->
+                      <a href="${project.link}" target="_blank">
+                        <img
+                          src="${project.imageSrc}"
+                          alt="${project.imageAlt}"
+                          class="w-full max-h-md h-auto rounded-t-lg md:rounded-l-lg md:rounded-r-none shadow-lg"
+                        />
+                      </a>
+                      <!-- Project Details -->
+                      <div class="px-6 pb-4 md:py-2">
+                        <h3 class="text-xl md:text-2xl font-semibold text-gray-900 mb-4">
+                          ${project.title}
+                        </h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4">
+                          ${project.description}
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                          ${generateBadges(project.badges)}
+                        </div>
+                      </div>
+                    </div>
+                  `;
+                }
             }
+
 
             // 4. Render all projects into the #projects container
             function renderProjects() {
@@ -196,7 +269,7 @@
     </section>
 
     <!-- Activities Section -->
-    <section id="activities" class="max-w-5xl mx-auto px-4 py-12 ">
+    <section id="activities" class="max-w-7xl mx-auto px-4 py-12 ">
         <h2 class="text-2xl md:text-4xl font-bold mb-4">Activities</h2>
         <div class="space-y-8">
             <!-- Activity 1 -->
@@ -232,13 +305,13 @@
     </section>
 
     <!-- Skills & Interests Section -->
-    <section id="blog" class="max-w-5xl mx-auto px-4 py-12 ">
+    <section id="blog" class="max-w-7xl mx-auto px-4 py-12 ">
         <h2 class="text-2xl md:text-4xl font-bold mb-6">Blog</h2>
-
+        <p class="text-gray-700">There is no blogs now</p>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="max-w-5xl mx-auto px-4 py-12 ">
+    <section id="contact" class="max-w-7xl mx-auto px-4 py-12 ">
         <h2 class="text-2xl md:text-4xl font-bold mb-6">Contact</h2>
         <p class="text-gray-700">
             Interested in collaborating or learning more about my work? Feel free to reach out:
