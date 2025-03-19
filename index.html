@@ -43,7 +43,7 @@
                 </button>
                 <div class="hidden w-full md:block md:w-auto" id="navbar-default">
                     <ul
-                        class="font-medium flex flex-col  mt-2 border border-gray-100 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white ">
+                        class="font-medium flex flex-col  mt-2 text-gray-600 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white ">
                         <li><a href="#education" class="hover:text-blue-600">Education</a></li>
 
                         <li><a href="#projects" class="hover:text-blue-600">Projects</a></li>
@@ -204,9 +204,9 @@
                 if ((index + 1) % 2 === 1) {
                     // For odd-numbered projects: details first, then image.
                     return `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center mt-8 border border-gray-100 rounded-xl ${animationClasses}" style="animation-delay: ${animationDelay}s">
+                    <div class="flex flex-col-reverse md:flex-row gap-4 items-center mt-8 border border-gray-100 rounded-xl ${animationClasses}" style="animation-delay: ${animationDelay}s">
                       <!-- Project Details -->
-                      <div class="px-6 pb-4 md:py-2">
+                      <div class="px-6 pb-4 md:py-2 flex-1">
                         <h3 class="text-xl md:text-3xl font-semibold text-gray-900 mb-4">
                           ${project.title}
                         </h3>
@@ -218,7 +218,7 @@
                         </div>
                       </div>
                       <!-- Project Screenshot -->
-                      <a href="${project.link}" target="_blank">
+                      <a href="${project.link}" target="_blank" class="flex-1">
                         <img
                           src="${project.imageSrc}"
                           alt="${project.imageAlt}"
@@ -230,17 +230,17 @@
                 } else {
                     // For even-numbered projects: image first, then details.
                     return `
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center mt-8 border border-gray-100 rounded-xl ${animationClasses}" style="animation-delay: ${animationDelay}s">
+                    <div class="flex flex-col md:flex-row gap-4 items-center mt-8 border border-gray-100 rounded-xl ${animationClasses}" style="animation-delay: ${animationDelay}s">
                       <!-- Project Screenshot -->
-                      <a href="${project.link}" target="_blank">
+                      <a href="${project.link}" target="_blank" class="flex-1">
                         <img
                           src="${project.imageSrc}"
                           alt="${project.imageAlt}"
-                          class="w-full max-h-md h-auto rounded-t-lg md:rounded-l-lg md:rounded-r-none shadow-lg"
+                          class="w-full max-h-md h-auto rounded-t-lg md:rounded-l-lg md:rounded-r-none shadow-lg "
                         />
                       </a>
                       <!-- Project Details -->
-                      <div class="px-6 pb-4 md:py-2">
+                      <div class="px-6 pb-4 md:py-2 flex-1">
                         <h3 class="text-xl md:text-3xl font-semibold text-gray-900 mb-4">
                           ${project.title}
                         </h3>
